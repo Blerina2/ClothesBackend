@@ -1,0 +1,4 @@
+Integration testing involves testing your application
+ as it connects with services inside or outside of the application.
+ This could include connecting different parts of your application or
+ connecting two different applications in a larger umbrella project.
