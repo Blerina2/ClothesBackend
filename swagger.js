@@ -11,7 +11,7 @@ const swaggerDefinition = {
     },
     servers: [
         {
-            url: ${serverConfig.web.PROTOCOL}://${serverConfig.web.HOSTNAME}:${serverConfig.web.PORT},
+            url: `${serverConfig.web.PROTOCOL}://${serverConfig.web.HOSTNAME}:${serverConfig.web.PORT}`,
             description: 'Local server',
         },
     ],
