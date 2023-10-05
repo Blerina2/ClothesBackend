@@ -13,4 +13,17 @@ services:
     volumes: # optional to preserve database after container is deleted.
       - ./database-data:/data/db
 
-
+# Mongo Express Service
+  mongo-express:
+    image: mongo-express:latest # latest image
+    container_name: mongo-express
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      ME_CONFIG_MONGODB_SERVER: database_clothes_mongodb
+      # use the name of the mongo container above for server env var.
+      # In our case this is mongodb
+  # backend app clothes
