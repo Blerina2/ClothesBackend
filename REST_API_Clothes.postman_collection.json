@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "a63cabe2-bac8-45d8-8b56-c454cf7d26bc",
+		"name": "REST API Clothes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12574999",
+		"_collection_link": "https://warped-eclipse-224904.postman.co/workspace/clothes~fe8983e2-ab2e-4c85-8ea6-0ca5facaf967/collection/12574999-a63cabe2-bac8-45d8-8b56-c454cf7d26bc?action=share&source=collection_link&creator=12574999"
+	},
+	"item": [
+		{
+			"name": "user -> signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\": \"blerina\",\r\n    \"lastname\": \"beka\",\r\n    \"birthday\": \"19/07/2002\",\r\n    \"email\": \"blerina@uni-pristina.ks\",\r\n    \"password\": \"KosovA1!?_\",\r\n    \"role\": 1,\r\n    \"address\": \"10000 Prishtina, Kosova\",\r\n    \"phone\": \"122332\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user -> update user",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "KosovA1!?_",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "blerina@uni-pristina.ks",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"64f4df69eca1567724266c70\",\r\n    \"firstname\": \"Blerina\",\r\n    \"lastname\": \"Beka\",\r\n    \"birthday\": \"19/07/2002\",\r\n    \"email\": \"blerina@uni-pristina.ks\",\r\n    \"password\": \"$2a$10$AOxSdB9kkMSFKB3yNJHtkesGfgQ2QDqKnYjTaSrPO/RuMHfwxgUwq\",\r\n    \"role\": 1,\r\n    \"address\": \"Peje\",\r\n    \"phone\": \"122332\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/byId/64f4df69eca1567724266c70",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"byId",
+						"64f4df69eca1567724266c70"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user -> signin (returns jwt token)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "blerina@uni-pristina.ks",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "KosovA1!?_",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user -> logout",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "blerina@uni-pristina.ks",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "KosovA1!?_",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user -> find user by id",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "blerina@uni-pristina.ks",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "KosovA1!?_",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/byId/64f4df69eca1567724266c70",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"byId",
+						"64f4df69eca1567724266c70"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user ->profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "blerina@uni-pristina.ks",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "KosovA1!?_",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user -> delete user by id",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "blerina@uni-pristina.ks",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "KosovA1!?_",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/byId/64f4df69eca1567724266c70",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"byId",
+						"64f4df69eca1567724266c70"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
