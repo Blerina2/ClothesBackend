@@ -40,3 +40,24 @@ const userRoutes = require('./routes/user.route');
 
 // routes middleware
 app.use("/user", userRoutes);
+
+// middleware
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(errorHandler);
+
+let corsOptions = {
+    origin: `${serverConfig.web.PROTOCOL}://${serverConfig.web.HOSTNAME}:${serverConfig.web.PORT}`
+};
+
+app.use(cors(corsOptions));
+//app.use(cors({ origin: '*'}))
+
+// set port, listen for requests
+app.listen(serverConfig.web.PORT, serverConfig.web.HOSTNAME, () => {
+    console.log(`Server of clothes is running on ${serverConfig.web.HOSTNAME}:${serverConfig.web.PORT}.`);
+});
+
+// Need for API TEST
+module.exports = app
