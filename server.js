@@ -26,3 +26,17 @@ app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({extended: true}));
+
+
+// connect to database
+mongoose.connect(databaseConfig.mongodb.URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => console.log("Database Connected successfully"))
+    .catch((err) => console.log(err))
+
+// import routes
+const userRoutes = require('./routes/user.route');
+
+// routes middleware
+app.use("/user", userRoutes);
